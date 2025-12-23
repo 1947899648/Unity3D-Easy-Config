@@ -24,7 +24,7 @@ The list of core methods is as follows:
 
 【2】 泛型配置控制类（Generic Configuration Controller）：EasyConfigHandler<T>
 
-使用步骤如下：
+# 使用步骤如下：
 
 The steps to use are as follows:
 
@@ -67,7 +67,7 @@ The end!
 
 <img width="418" height="324" alt="s7" src="https://github.com/user-attachments/assets/309949ec-d944-45b6-8c82-09760a55a376" />
 
-#补充说明：
+# 补充说明：
 
 Additional explanation:
 
