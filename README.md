@@ -80,6 +80,7 @@ After running the program, the StreamingAssets folder EasyConfigsRoot is automat
 This folder contains configuration JSON files. Users can directly customize and edit the parameter values as needed.
 <img width="265" height="382" alt="s5" src="https://github.com/user-attachments/assets/36bc0cd8-93b8-4faf-890b-2d72bf01ec35" />
 
-<img width="418" height="324" alt="s7" src="https://github.com/user-attachments/assets/aa802762-f8fe-4c59-9b41-630977ba7b57" />
+<img width="583" height="355" alt="s6" src="https://github.com/user-attachments/assets/348389de-013b-4b5e-86c0-59a729e3d763" />
+
 
 
