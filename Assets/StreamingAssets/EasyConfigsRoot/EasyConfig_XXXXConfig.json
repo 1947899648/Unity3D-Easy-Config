@@ -1,0 +1,12 @@
+{
+    "BoolTest": false,
+    "IntTest": 1234,
+    "StringTest": "Hello",
+    "BytesListTest": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ]
+}
