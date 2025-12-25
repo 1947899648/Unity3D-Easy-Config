@@ -39,7 +39,8 @@ namespace WPZ0325.EasyConfig
                 {
                     try
                     {
-                        cache = JsonUtility.FromJson<ConfigDataModel>(sr.ReadToEnd());
+                        //cache = JsonUtility.FromJson<ConfigDataModel>(sr.ReadToEnd());
+                        cache = EasyConfigJsonTool.JsonToObject<ConfigDataModel>(sr.ReadToEnd());
                     }
                     catch
                     {
@@ -87,7 +88,8 @@ namespace WPZ0325.EasyConfig
             using (FileStream fs = new FileStream(_configFileFullPath, FileMode.Create, FileAccess.ReadWrite))//权限是读和写
             {
                 StreamWriter sw = new StreamWriter(fs);
-                string content = JsonUtility.ToJson(configData, prettyPrint);
+                //string content = JsonUtility.ToJson(configData, prettyPrint);
+                string content = EasyConfigJsonTool.ObjectToJson<ConfigDataModel>(configData, prettyPrint);
                 sw.Write(content);
                 sw.Close();
                 fs.Close();
