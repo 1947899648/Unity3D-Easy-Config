@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.IO;
 
@@ -18,10 +19,7 @@ namespace WPZ0325.EasyConfig
             get
             {
                 string rootPath = Path.Combine(Application.streamingAssetsPath, "EasyConfigsRoot");
-                if (!Directory.Exists(rootPath))
-                {
-                    Directory.CreateDirectory(rootPath);
-                }
+                Directory.CreateDirectory(rootPath);
                 return Path.Combine(rootPath, $"EasyConfig_{typeof(ConfigDataModel).Name}.json");
             }
         }
@@ -30,7 +28,7 @@ namespace WPZ0325.EasyConfig
         /// 涉及System.IO操作
         /// </summary>
         /// <returns></returns>
-        private static ConfigDataModel ReadLocalConfig()
+        private static ConfigDataModel ReadLocalConfig(int maxAttempt = 1)
         {
             ConfigDataModel cache = null;
             if (File.Exists(_configFileFullPath))
@@ -42,10 +40,17 @@ namespace WPZ0325.EasyConfig
                         //cache = JsonUtility.FromJson<ConfigDataModel>(sr.ReadToEnd());
                         cache = EasyConfigJsonTool.JsonToObject<ConfigDataModel>(sr.ReadToEnd());
                     }
-                    catch
+                    catch (Exception)
                     {
-                        File.Delete(_configFileFullPath);
-                        cache = ReadLocalConfig();
+                        if (maxAttempt > 0)
+                        {
+                            File.Delete(_configFileFullPath);
+                            cache = ReadLocalConfig(maxAttempt - 1);
+                        }
+                        else
+                        {
+                            cache = new ConfigDataModel().GetDefaultConfigData();
+                        }
                     }
                 }
             }
@@ -85,14 +90,11 @@ namespace WPZ0325.EasyConfig
         /// <param name="prettyPrint"></param>
         public static void Save(ConfigDataModel configData, bool prettyPrint = true)
         {
-            using (FileStream fs = new FileStream(_configFileFullPath, FileMode.Create, FileAccess.ReadWrite))//权限是读和写
+            using (FileStream fs = new FileStream(_configFileFullPath, FileMode.Create, FileAccess.ReadWrite))
+            using (StreamWriter sw = new StreamWriter(fs))
             {
-                StreamWriter sw = new StreamWriter(fs);
-                //string content = JsonUtility.ToJson(configData, prettyPrint);
-                string content = EasyConfigJsonTool.ObjectToJson<ConfigDataModel>(configData, prettyPrint);
+                string content = EasyConfigJsonTool.ObjectToJson(configData, prettyPrint);
                 sw.Write(content);
-                sw.Close();
-                fs.Close();
             }
         }
         #endregion
