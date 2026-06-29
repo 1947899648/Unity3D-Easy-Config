@@ -3,7 +3,7 @@ using UnityEngine;
 namespace WPZ0325.EasyConfig
 {
     /// <summary>
-    /// Json工具源自定义类，默认使用UnityEngine.JsonUtility
+    /// Json宸ュ叿婧愯嚜瀹氫箟绫伙紝榛樿浣跨敤UnityEngine.JsonUtility
     /// </summary>
     public class EasyConfigJsonTool
     {
