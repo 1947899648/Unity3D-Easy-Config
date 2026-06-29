@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using UnityEngine;
 using System.IO;
 
@@ -33,7 +34,7 @@ namespace WPZ0325.EasyConfig
             ConfigDataModel cache = null;
             if (File.Exists(_configFileFullPath))
             {
-                using (StreamReader sr = new StreamReader(_configFileFullPath))
+                using (StreamReader sr = new StreamReader(_configFileFullPath, Encoding.UTF8))
                 {
                     try
                     {
@@ -90,8 +91,9 @@ namespace WPZ0325.EasyConfig
         /// <param name="prettyPrint"></param>
         public static void Save(ConfigDataModel configData, bool prettyPrint = true)
         {
+            if (configData == null) return;
             using (FileStream fs = new FileStream(_configFileFullPath, FileMode.Create, FileAccess.ReadWrite))
-            using (StreamWriter sw = new StreamWriter(fs))
+            using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
             {
                 string content = EasyConfigJsonTool.ObjectToJson(configData, prettyPrint);
                 sw.Write(content);

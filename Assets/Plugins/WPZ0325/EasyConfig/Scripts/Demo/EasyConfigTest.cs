@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using WPZ0325.EasyConfig;
 using UnityEngine.UI;
-using System;
 
 namespace WPZ0325.EasyConfig.Demo
 {

@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using WPZ0325.EasyConfig;
 
@@ -10,16 +9,14 @@ public class XXXXConfigDemo : MonoBehaviour
         {
             //Get Config!
             XXXXConfig _configData = EasyConfigHandler<XXXXConfig>.Data();
-            Debug.Log(JsonUtility.ToJson(_configData, true));
+            Debug.Log(EasyConfigJsonTool.ObjectToJson(_configData));
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //Save Congig!
+            //Save Config!
             XXXXConfig newConfig = new XXXXConfig();
             EasyConfigHandler<XXXXConfig>.Save(newConfig);
         }
     }
 }
-
-

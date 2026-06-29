@@ -1,7 +1,7 @@
-
 using System.Collections.Generic;
 using WPZ0325.EasyConfig;
 
+[System.Serializable]
 public class XXXXConfig : IEasyConfigBase<XXXXConfig>
 {
     public bool BoolTest;
@@ -26,8 +26,4 @@ public class XXXXConfig : IEasyConfigBase<XXXXConfig>
         };
     }
 }
-
-
-
-
 
