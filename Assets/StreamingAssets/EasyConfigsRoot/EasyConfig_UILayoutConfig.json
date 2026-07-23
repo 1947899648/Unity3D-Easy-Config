@@ -1,0 +1,26 @@
+﻿{
+    "FontSize": 14,
+    "ThemeColor": "#4A90D9",
+    "MainMenuPos": {
+        "X": 100.0,
+        "Y": 200.0
+    },
+    "HotbarButtons": [
+        {
+            "Label": "背包",
+            "IconIndex": 0,
+            "Enabled": true
+        },
+        {
+            "Label": "技能",
+            "IconIndex": 1,
+            "Enabled": true
+        },
+        {
+            "Label": "设置",
+            "IconIndex": 2,
+            "Enabled": true
+        }
+    ],
+    "ShowFps": false
+}

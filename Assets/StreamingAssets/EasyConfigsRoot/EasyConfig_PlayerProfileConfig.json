@@ -1,0 +1,16 @@
+﻿{
+    "PlayerName": "Hero",
+    "Level": 1,
+    "Gold": 10000,
+    "VipLevel": 0,
+    "UnlockedHeroes": [
+        "Warrior",
+        "Mage"
+    ],
+    "Stats": {
+        "Strength": 10,
+        "Agility": 8,
+        "Intelligence": 5,
+        "Stamina": 12
+    }
+}
